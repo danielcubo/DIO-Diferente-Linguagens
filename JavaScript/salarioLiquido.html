@@ -1,0 +1,33 @@
+<script>
+    function descontarINSS(paramSalarioBase) {
+        let descontoINSS;
+
+        if(paramSalarioBase <= 1412) {
+            descontoINSS = paramSalarioBase * 0.075;
+        } else if(paramSalarioBase > 1412 && paramSalarioBase <= 2666.68) {
+            descontoINSS = paramSalarioBase * 0.09;
+        } else if(paramSalarioBase > 2666.68 && paramSalarioBase <= 4000.03) {
+            descontoINSS = paramSalarioBase * 0.12;
+        } else {
+            descontoINSS = paramSalarioBase * 0.14;
+        }
+
+        return descontoINSS;
+    }
+
+    var salarioBase = Number(prompt('Digite o salario: '))
+    var beneficios = Number(prompt('Digite os beneficios: '))
+
+    var descontoINSS = descontarINSS(salarioBase)
+
+    var salarioLiquido = (salarioBase - descontoINSS) + beneficios
+
+    document.write('***** Folha de pagamento ***** <br/>')
+    document.write(`Salario Base     ${salarioBase.toFixed(2)} <br/>`)
+    document.write(`Beneficios:      ${beneficios.toFixed(2)} <br/>`)
+    document.write(`Descontos:       ${descontoINSS.toFixed(2)} <br/>`)
+    document.write(`Salario liquido: ${salarioLiquido.toFixed(2)} <br/>`)
+</script>
+
+
+
